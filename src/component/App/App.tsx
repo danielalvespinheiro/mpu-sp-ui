@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {} from 'react-router'
+import { Navigate } from 'react-router'
 import { Route, Routes } from 'react-router-dom';
 import Document from '../Document/Document';
 import Login from '../User/Login/Login';
@@ -24,27 +24,27 @@ function App() {
   return (
     <div className="App">
         <Routes>
-          <Route path="/" element={<VirtualTable />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/mesa-virtual" element={<VirtualTable />} />
           <Route path="/documento/:sigla" element={<Document />} /> 
           <Route path="/documento" element={<Document />} /> 
           <Route path="/formulario-usuario" element={<User />} />
           <Route path="/formulario-usuario/:id" element={<User />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/visualizar-documento" element={<View />} />
           <Route path="/visualizar-documento/:codigo" element={<View />} />
           <Route path="/listarusuario" element={<UserList />} />
           <Route path="/listar-usuario" element={<UsuarioHome />} />
-          <Route path="*" element={<PaginaNaoEncontrada/>} />
           <Route path="/Tramitar-documento" element={<Process />} />
           <Route path="/cadastro-departamento" element={<Department />} />
           <Route path="/cadastro-departamento/:id" element={<Department />} />
-          <Route path='/permissoes-usuario' element={<PermissoesUsuario />} />
+          <Route path="/permissoes-usuario" element={<PermissoesUsuario />} />
           <Route path="/orgao" element={<Organization />} />
           <Route path="/orgao/:id" element={<Organization />} /> 
           <Route path="/home-orgao" element={<OrganizationList />} />
-          <Route path='/nao-autorizado' element={<NaoAutorizado />} />
-          <Route path='/Incluir-Consignatario' element={<Incluir />} />
+          <Route path="/nao-autorizado" element={<NaoAutorizado />} />
+          <Route path="/Incluir-Consignatario" element={<Incluir />} />
+          <Route path="*" element={<PaginaNaoEncontrada />} />
         </Routes>
     </div>
     

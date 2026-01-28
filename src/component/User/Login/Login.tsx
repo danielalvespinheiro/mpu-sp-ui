@@ -34,7 +34,8 @@ function Login(props: LoginProps) {
                 const token = data.token;
                 const cookies = new Cookies(null, { path: '/'});
                 cookies.set('Token', token);
-                navigate('/');
+                // Redirecionar para a mesa-virtual após o login bem-sucedido
+                navigate('/mesa-virtual');
             }).catch(error =>{
                 console.error('Erro ao fazer login', error);
                 Swal.fire("Oops!", error.message, "error")

@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 
 const http = axios.create({
-    baseURL: 'http://localhost:8085/'
+    baseURL: 'http://localhost:8082/user'
 });
 
 http.interceptors.request.use(async config => {

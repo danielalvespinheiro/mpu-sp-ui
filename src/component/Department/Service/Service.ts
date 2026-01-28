@@ -3,7 +3,7 @@ import http from "../../../utils/http-department";
 import { DepartmentActive } from "../List/DepartmentList";
 import { DepartmentModel } from "../Department";
 
-const baseURL = '/v1/department'
+const baseURL = '/department/v1'
 
 export const cadastrarSetor = (department: DepartmentModel) => {
     http.post(`${baseURL}/cadastrar`, department)
@@ -16,6 +16,12 @@ export const editarSetor = (department: DepartmentModel, id: String) => {
 export const buscarSetorPorId = (id:string) => {
     return http
         .get(`${baseURL}/buscar/${id}`)
+        .then(response => response.data); 
+}  
+
+export const listarDepartamentos = () => {
+    return http
+        .get(`${baseURL}`)
         .then(response => response.data); 
 }  
 

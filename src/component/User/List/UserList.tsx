@@ -103,7 +103,11 @@ function TabelaUsuario() {
                 onClickButton={ buscar }
                 placeholder='buscar usuários' />
         </div>
-        <Link className='BtnCriarDocumento AppCriarDocumento right' to="/formulario-usuario"><Button value='Novo Usuário' color='create'></Button></Link>
+        <Link className='BtnCriarDocumento AppCriarDocumento right' to="/formulario-usuario">
+            <Button color='create'>
+                Novo Usuário
+            </Button>
+            </Link>
         <div className="clear"></div>
     </div>
     <table className="AppTabelaUsuario">
@@ -112,7 +116,7 @@ function TabelaUsuario() {
                 <th>Nome</th>
                 <th>Departamento</th>
                 <th>Contato</th>
-                <th>Acoes</th>
+                <th>Ações</th>
             </tr>
         </thead>
             <tbody>
@@ -126,7 +130,9 @@ function TabelaUsuario() {
                                     <td>
                                         <div style={{ display: 'flex', maxWidth: '40px' }}>
                                             <Link className='BtnEditar' to={`/formulario-usuario/${listValue.userModel.id}`}>
-                                                <Button icon={<BorderColorRoundedIcon/>}/> 
+                                                <Button >
+                                                    <BorderColorRoundedIcon/>
+                                                </Button> 
                                             </Link>
                                             {
                                                 listValue.userModel.active ? 

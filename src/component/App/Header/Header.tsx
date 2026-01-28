@@ -11,12 +11,15 @@ function Header() {
     const location = useLocation();
     const cookies = new Cookies();
     const [showMenu, setShowMenu] =  useState(true);
+    const [nameUser, setNameUser] = useState('');
     
     useEffect(() => {
         const token = cookies.get('Token');
         if (!token) {
             return 
         }
+        const object = JSON.parse(atob(token.split('.')[1]))
+        setNameUser(object['nome']); 
     }, []);
 
     function exibindoNavbar() {
@@ -41,13 +44,13 @@ function Header() {
                     <CloseIcon sx={{ color: 'white' }} fontSize="small" />
                 </button> 
 
-                <li className="navbar-usuario">Loiane Moskviq</li>
+                <li className="navbar-usuario"><p>{nameUser.toUpperCase()}</p></li>
                 <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  
                 <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
                 <li className="navbar-menu-item"><Link to="/listar-usuario">Cadastro usuário</Link></li>
-                <li className="navbar-menu-item"><Link to="/home-orgao">Cadastro Setor</Link></li>
+                <li className="navbar-menu-item"><Link to="/home-orgao">Cadastro Organização</Link></li>
+                <li className="navbar-menu-item"><Link to="/cadastro-orgao">Cadastro Departamento</Link></li>
                 <li className="navbar-menu-item"><Link to={"/permissoes-usuario"}>Permissoes para usuário</Link></li>
-                <li className="navbar-menu-item"><Link to="/cadastro-orgao">Cadastro Órgão</Link></li>
 
             </ul>
 
